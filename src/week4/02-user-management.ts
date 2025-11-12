@@ -28,9 +28,10 @@ class UserManager {
   private users: Map<string, User> = new Map();
   private usernameIndex: Map<string, string> = new Map();
   private emailIndex: Map<string, string> = new Map();
+  private nextId: number = 1;
 
   private generateId(): string {
-    return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    return `user_${this.nextId++}`;
   }
 
   createUser(userInput: UserInput): User | null {
