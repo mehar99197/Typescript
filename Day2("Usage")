@@ -1,0 +1,22 @@
+enum skillLevel{
+    Beginner, Intermediate, Advanced
+}
+let students: [string,number,boolean,skillLevel][]=[];
+function addStudents(st:[string,number,boolean,skillLevel]) : void{
+students.push(st);
+}
+addStudents(["Ahmad Nawaz",22,true,skillLevel.Intermediate]);
+addStudents(["Ayesha",20,false,skillLevel.Beginner]);
+addStudents(["Dania",21,true,skillLevel.Intermediate]);
+function showAllStudents(st:[string,number,boolean,skillLevel][]) :string {
+  for(let j:number=0;j<students.length;j++){
+    return st[j][2]? `Name: ${st[j][0]}
+                   Age: ${st[j][1]}
+                   Status: Currently learning TypeScript.
+                   Skill Level: ${skillLevel[st[j][3]]}`:
+                  `Name: ${st[j][0]}
+                   Age: ${st[j][1]}
+                   Status: Not enrolled currently.
+                   Skill Level: ${skillLevel[st[j][3]]}`
+  }
+}
